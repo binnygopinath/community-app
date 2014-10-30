@@ -1,0 +1,98 @@
+{
+	"officeId":1,
+	"officeName":"Head Office",
+	"tellerId":3,
+	"tellerName":"Head Office - Teller 01",
+	"cashiers": [
+		{
+			"id":1,
+			"staffId":4,
+			"staffName":"Mary Jane",
+			"startDate":[
+				2014,
+				10,
+				08
+				],
+			"endDate": [
+				2014,
+				10,
+				14
+				],
+			"isFullDay":"true",
+			"startTime":"1",
+			"endTime":"2"
+		},
+		{
+			"id":2,
+			"staffId":5,
+			"staffName":"John Doe",
+			"startDate":[
+				2014,
+				10,
+				07
+				],
+			"endDate": [
+				2014,
+				10,
+				07
+				],
+			"isFullDay":"true",
+			"startTime":"3",
+			"endTime":"4"
+		},
+		{
+			"id":3,
+			"staffId":5,
+			"staffName":"John Doe",
+			"startDate":[
+				2014,
+				10,
+				06
+				],
+			"endDate": [
+				2014,
+				10,
+				06
+				],
+			"isFullDay":"true",
+			"startTime":"5",
+			"endTime":"6"
+		},
+		{
+			"id":4,
+			"staffId":5,
+			"staffName":"John Doe",
+			"startDate":[
+				2014,
+				10,
+				05
+				],
+			"endDate": [
+				2014,
+				10,
+				05
+				],
+			"isFullDay":"false",
+			"startTime":"10:00am",
+			"endTime":"3:00pm"
+		},
+		{
+			"id":5,
+			"staffId":4,
+			"staffName":"Mary Jane",
+			"startDate":[
+				2014,
+				10,
+				01
+				],
+			"endDate": [
+				2014,
+				10,
+				04
+				],
+			"isFullDay":"false",
+			"startTime":"10:00am",
+			"endTime":"4:00pm"
+		}
+	]
+}
