@@ -408,6 +408,9 @@
                     tellerCashierTxnsResource: defineResource(apiVer + "/tellers/:tellerId/cashiers/:cashierId/transactions", {tellerId: "@tellerId", cashierId: "@cashierId"}, {
                         getCashierTransactions: {method: 'GET', params: {tellerId: "@tellerId", cashierId: "@cashierId"}, isArray: true}
                     }),
+                    tellerCashierSummaryAndTxnsResource: defineResource(apiVer + "/tellers/:tellerId/cashiers/:cashierId/summaryandtransactions", {tellerId: "@tellerId", cashierId: "@cashierId"}, {
+                        getCashierSummaryAndTransactions: {method: 'GET', params: {tellerId: "@tellerId", cashierId: "@cashierId"}, isArray: false}
+                    }),
                     tellerCashierTxnsAllocateResource: defineResource(apiVer + "/tellers/:tellerId/cashiers/:cashierId/allocate", {tellerId: "@tellerId", cashierId: "@cashierId"}, {
                         allocate: { method: 'POST', params: {tellerId: "@tellerId", cashierId: "@cashierId", command: "allocate"}}
                     }),

@@ -26,8 +26,11 @@
             ng-repeat="client in clients.currentPageItems | orderBy:'displayName':reverse  | filter:filterText">
             <td class="pointer" data-ng-click="routeTo(client.id)">{{client.displayName}}</td>
             <td class="pointer" data-ng-click="routeTo(client.id)">{{client.accountNo}}</td>
-            <td class="pointer" data-ng-click="routeTo(client.id)"><i
-                    class="icon-stop {{client.status.code | StatusLookup}}"></i>&nbsp;{{client.status.value}}
+            <td class="pointer" data-ng-click="routeTo(client.id)">
+                <i class="icon-stop {{client.status.code | StatusLookup}}"></i>
+                <span ng-if="!(client.substatus.value == null)">
+                    [{{client.substatus.value}}]
+                </span>
             </td>
             <td class="pointer" data-ng-click="routeTo(client.id)">{{client.officeName}}</td>
             <td class="pointer" data-ng-click="routeTo(client.id)">{{client.staffName}}</td>
