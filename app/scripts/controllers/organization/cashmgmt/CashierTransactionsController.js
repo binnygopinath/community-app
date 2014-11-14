@@ -35,8 +35,8 @@
                 return obj;
             }
 
-            resourceFactory.tellerCashierTxnsResource.getCashierTransactions({tellerId: routeParams.tellerId, cashierId: routeParams.cashierId}, function (data) {
-                scope.cashiertxns = data;
+            resourceFactory.tellerCashierSummaryAndTxnsResource.getCashierSummaryAndTransactions({tellerId: routeParams.tellerId, cashierId: routeParams.cashierId}, function (data) {
+                scope.cashierSummaryAndTxns = data;
             });
 
         }

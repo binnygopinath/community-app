@@ -29,7 +29,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr class="pointer-main" ng-repeat="cashier in cashiersForTeller.cashiers | orderBy:'cashier.startDate' | orderBy:'cashier.staffName'  | filter:filterText">
+            <tr class="pointer-main" ng-repeat="cashier in cashiersForTeller.cashiers | orderBy:'cashier.startDate':reverse | filter:filterText">
                 <td class="pointer" data-ng-click="routeTo(cashiersForTeller.tellerId, cashier.id)">
                     <div ng-if="compare(cashier.startDate,cashier.endDate)">
                         {{cashier.startDate | DateFormat}}

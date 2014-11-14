@@ -27,18 +27,31 @@
         <table class="table">
             <thead>
             <tr class="graybg">
-                <th>{{'label.heading.cashmgmt.cashier.txnDate' | translate}}</th>
-                <th>{{'label.heading.cashmgmt.cashier.txnType' | translate}}</th>
-                <th>{{'label.heading.cashmgmt.cashier.txnAmount' | translate}}</th>
-                <th>{{'label.heading.cashmgmt.cashier.txnDetails' | translate}}</th>
+                <th>{{'label.heading.cashmgmt.cashier.netAmount' | translate}}: {{cashierSummaryAndTxns.netCash | number}}</th>
+                <th></th>
+                <th align="center">{{'label.heading.cashmgmt.cashier.txnAmountAlloc' | translate}}: {{cashierSummaryAndTxns.sumCashAllocation | number}}</th>
+                <th align="center">{{'label.heading.cashmgmt.cashier.txnAmountCashIn' | translate}}: {{cashierSummaryAndTxns.sumInwardCash | number}}</th>
+                <th align="center">{{'label.heading.cashmgmt.cashier.txnAmountCashOut' | translate}}: {{cashierSummaryAndTxns.sumOutwardCash | number}}</th>
+                <th align="center">{{'label.heading.cashmgmt.cashier.txnAmountSettle' | translate}}: {{cashierSummaryAndTxns.sumCashSettlement | number}}</th>
                 <th></th>
             </tr>
             </thead>
             <tbody>
-            <tr class="pointer-main" ng-repeat="txn in cashiertxns| orderBy:'txn.txnDate' | orderBy:'id'  | filter:filterText">
+            <tr class="pointer-main" ng-repeat="txn in cashierSummaryAndTxns.cashierTransactions| orderBy:'txn.txnDate' | orderBy:'createdDate'  | filter:filterText">
                 <td class="pointer" data-ng-click="routeTo(txn.id)">{{txn.txnDate | DateFormat}}</td>
                 <td class="pointer" data-ng-click="routeTo(txn.id)">{{txn.txnType.value}}</td>
-                <td class="pointer" data-ng-click="routeTo(txn.id)">{{txn.txnAmount}}</td>
+                <td align="right" class="pointer" data-ng-click="routeTo(txn.id)">
+                    <span ng-if="txn.txnType.value == 'Allocate Cash'">{{txn.txnAmount | number}}</span
+                </td>
+                <td align="right" class="pointer" data-ng-click="routeTo(txn.id)">
+                    <span ng-if="txn.txnType.value == 'Cash In'">{{txn.txnAmount | number}}</span
+                </td>
+                <td align="right" class="pointer" data-ng-click="routeTo(txn.id)">
+                    <span ng-if="txn.txnType.value == 'Cash Out'">{{txn.txnAmount | number}}</span
+                </td>
+                <td align="right" class="pointer" data-ng-click="routeTo(txn.id)">
+                    <span ng-if="txn.txnType.value == 'Settle Cash'">{{txn.txnAmount | number}}</span>
+                </td>
                 <td class="pointer" data-ng-click="routeTo(txn.id)">{{txn.txnNote}}</td>
             </tr>
             </tbody>

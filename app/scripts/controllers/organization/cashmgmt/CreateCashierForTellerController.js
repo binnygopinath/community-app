@@ -28,7 +28,10 @@
                 this.formData.dateFormat = scope.df;
                 this.formData.startDate = reqDate;
                 this.formData.endDate = endDate;
-                resourceFactory.tellerCashierResource.save({'tellerId': routeParams.tellerId, 'cashierId': routeParams.cashierId}, this.formData, function (data) {
+                resourceFactory.tellerCashierResource.save(
+                    {'tellerId': routeParams.tellerId, 'cashierId': routeParams.cashierId}, 
+                    this.formData, function (data) {
+                        location.path('tellers/' + routeParams.tellerId + '/cashiers');
                 });
             };
         }
