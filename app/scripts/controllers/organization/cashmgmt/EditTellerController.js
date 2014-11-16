@@ -10,16 +10,30 @@
 
             resourceFactory.tellerResource.get({tellerId: routeParams.id, template: 'true'}, function (data) {
                 scope.tellerId = data.id;
+                scope.officeName = data.officeName;
+                if (data.endDate) {
+                    var editEndDate = dateFilter(data.endDate, scope.df);
+                    data.endDate = new Date(editEndDate);
+                }
+                if (data.startDate) {
+                    var editStartDate = dateFilter(data.startDate, scope.df);
+                    data.startDate = new Date(editStartDate);
+                }
+                if (data.status) {
+                    if (data.status == 'ACTIVE') {
+                        data.status = 300;
+                    } else {
+                        data.status = 400;
+                    }
+                }
                 scope.formData = {
                     name: data.name,
                     officeId: data.officeId,
                     description: data.description,
-                    status: data.status
+                    status: data.status,
+                    endDate: data.enDate,
+                    startDate: data.startDate
                 }
-                var stDate = dateFilter(data.startDate, scope.df);
-                scope.formData.startDate = new Date(stDate);
-                var enDate = dateFilter(data.endDate, scope.df);
-                scope.formData.endDate = new Date(enDate);
             });
 
 

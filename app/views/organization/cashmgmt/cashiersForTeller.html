@@ -9,12 +9,10 @@
     </div>
 
     <div class="pull-right">
-        <a href="#/tellers/{{cashiersForTeller.tellerId}}/createCashierForTeller" class="btn btn-primary" has-permission='CREATE_CASHIERS_FOR_TELLER'><i class="icon-plus icon-white"></i>
-            {{'label.button.createcashier'| translate}}</a>
-    </div>
-    <div class="clear">
         {{'label.heading.cashmgmt.officeName' | translate}} : {{cashiersForTeller.officeName}} | 
         {{'label.heading.cashmgmt.tellerName' | translate }} : {{cashiersForTeller.tellerName}}
+        <a href="#/tellers/{{cashiersForTeller.tellerId}}/createCashierForTeller" class="btn btn-primary" has-permission='CREATE_CASHIERS_FOR_TELLER'><i class="icon-plus icon-white"></i>
+            {{'label.button.createcashier'| translate}}</a>
     </div>
     <div ng-hide="isTreeView">
     	<input ng-autofocus="true" ng-model="filterText" type="text" class="form-control span marginbottom0px"
