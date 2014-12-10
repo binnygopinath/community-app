@@ -3124,5 +3124,6 @@
     "deposutAccountOnHoldTransactionType.release":"Release",
     "label.heading.transactionType":"Transaction Type",
     "label.heading.transactionDate":"Transaction Date",
+    "error.msg.loan.application.clientsubstatus": "Client Sub-Status does not permit this action for loan.",
     "----------------------": "------------"
 }
