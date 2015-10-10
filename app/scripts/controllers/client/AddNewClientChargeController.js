@@ -7,15 +7,24 @@
 
             resourceFactory.clientChargesResource.get({clientId: routeParams.id, resourceType: 'template'}, function (data) {
                 scope.chargeOptions = data.chargeOptions;
+                scope.calendarsData = data.calendarsData;
             });
 
             scope.chargeSelected = function (id) {
+                alert(scope.calendarsData[0].id);
                 resourceFactory.chargeResource.get({chargeId: id, template: 'true'}, function (data) {
                     scope.chargeCalculationType = data.chargeCalculationType.id;
                     scope.chargeTimeType = data.chargeTimeType.id;
                     scope.chargeDetails = data;
                     scope.formData.amount = data.amount;
                 });
+            };
+
+            scope.syncRepaymentsWithMeetingchange = function () {
+                if (this.formData.syncRepaymentsWithMeeting) {
+                    alert(scope.calendarsData[0].id);
+                    this.formData.calendarId = scope.calendarsData[0].id;
+                }
             };
 
             scope.submit = function () {

@@ -55,6 +55,23 @@
             </div>
 
             <div class="form-group">
+               <label ng-show="calendarsData"><i class="icon-calendar icon-white"></i>&nbsp;<strong>{{
+                'label.heading.meetingdetails' | translate }}</strong></label>
+               <table ng-show="calendarsData" class="width100">
+                 <tr ng-repeat="calendar in calendarsData">
+                    <td class="width14"><label>{{ 'label.heading.startdate' | translate }}:</label></td>
+                    <td class="width36">{{calendar.startDate | DateFormat}}</td>
+                    <td class="width14"><label>{{ 'label.heading.repeatson' | translate }}:</label></td>
+                    <td class="width36">{{calendar.humanReadable}}</td>
+                 </tr>
+                <tr ng-repeat="calendar in calendarsData">
+                    <td align="center"><input type="checkbox" ng-model="this.formData.syncRepaymentsWithMeeting"
+                                              ng-change="syncRepaymentsWithMeetingchange()"></td>
+                    <td><label>{{ 'label.input.syncrepaymentswithmeeting' | translate }}</label></td>
+                </tr>
+            </table>
+           </div>
+            <div class="form-group">
                 <label class="control-label col-sm-2">{{ 'label.input.dueforcollectedon' | translate }}<span
                         class="required">*</span></label>
 

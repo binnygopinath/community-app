@@ -192,6 +192,9 @@
 						        <li class="{{button.icon}}" data-ng-show="client.status.value=='Active'">
 						            <a href="#/newclientrecurringdepositaccount/{{client.id}}" has-permission='CREATE_RECURRINGDEPOSITACCOUNT'>{{'label.newrecurringdepositaccount' | translate}}</a>
 						        </li>
+                                <li data-ng-show="client.status.value=='Active'">
+                                    <a href="#/attachmeeting/{{client.id}}/clients"  has-permission='CREATE_MEETING' >{{ 'label.button.attachmeeting' | translate }}</a>
+                               </li>
 								<li >
 									<a ng-href="#{{pathToChargeOverview()}}" has-permission='READ_CLIENTCHARGE'>{{'label.button.chargesoverview' | translate }}</a>
 								</li>

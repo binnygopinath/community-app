@@ -1,11 +1,11 @@
 (function (module) {
     mifosX.controllers = _.extend(module, {
         AttachMeetingController: function (scope, resourceFactory, location, routeParams, dateFilter) {
-            resourceFactory.attachMeetingResource.get({groupOrCenter: routeParams.entityType, groupOrCenterId: routeParams.id,
+            resourceFactory.attachMeetingResource.get({groupOrCenter: routeParams.entityType, clientChargeId: routeParams.id,
                 templateSource: 'template'}, function (data) {
                 scope.entityType = routeParams.entityType;
-                scope.groupOrCenterId = routeParams.id;
-                scope.groupCenterData = data;
+                scope.clientChargeId = routeParams.id;
+                scope.clientChargeData = data;
                 scope.restrictDate = new Date();
                 scope.first = {};
                 scope.periodValue = "day(s)";
@@ -67,12 +67,8 @@
                     this.formData.title = "centers_" + routeParams.id + "_CollectionMeeting";
                     scope.r = "viewcenter/";
                 }
-                else if (routeParams.entityType == "clients") {
-                    this.formData.title = "clients_" + routeParams.id + "_CollectionMeeting";
-                    scope.r = "viewclient/";
-                }
 
-                resourceFactory.attachMeetingResource.save({groupOrCenter: routeParams.entityType, groupOrCenterId: routeParams.id}, this.formData, function (data) {
+                resourceFactory.attachMeetingResource.save({groupOrCenter: routeParams.entityType, clientChargeId: routeParams.id}, this.formData, function (data) {
                     location.path(scope.r + routeParams.id);
                 });
             };
